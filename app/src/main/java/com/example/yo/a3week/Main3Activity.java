@@ -65,15 +65,15 @@ public class Main3Activity extends AppCompatActivity {
             String adult = e1.getText().toString();
             String middle = e2.getText().toString();
             String baby = e3.getText().toString();
-            if (adult.getBytes().length == 0) e1.setText("0명");
+            if (adult.getBytes().length == 0) e1.setText("0");
             {
                 adult = e1.getText().toString();
             }
-            if (middle.getBytes().length == 0) e2.setText("0명");
+            if (middle.getBytes().length == 0) e2.setText("0");
             {
                 middle = e2.getText().toString();
             }
-            if (baby.getBytes().length == 0) e3.setText("0명");
+            if (baby.getBytes().length == 0) e3.setText("0");
             {
                 baby = e3.getText().toString();
             }
