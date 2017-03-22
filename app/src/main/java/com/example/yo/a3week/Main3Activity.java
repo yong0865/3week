@@ -29,13 +29,12 @@ public class Main3Activity extends AppCompatActivity {
     FrameLayout frame1;
     DatePicker datePicker;
     TimePicker timePicker;
-    TextView t15, t17,t19,t21,t23;
+    TextView t15, t17, t19, t21, t23;
     Button backb, nextb;
     TableRow tableb;
     GridLayout grid1, grid2;
-    EditText e1,e2,e3;
+    EditText e1, e2, e3;
     int menuIndex;
-
 
 
     public void changemenu() {
@@ -54,7 +53,7 @@ public class Main3Activity extends AppCompatActivity {
             grid1.setVisibility(View.GONE);
             grid2.setVisibility(View.GONE);
         } else if (menuIndex == 2) {
-            t17.setText(Integer.toString(timePicker.getCurrentHour())+"시 "+Integer.toString(timePicker.getCurrentMinute())+"분");
+            t17.setText(Integer.toString(timePicker.getCurrentHour()) + "시 " + Integer.toString(timePicker.getCurrentMinute()) + "분");
             backb.setEnabled(true);
             nextb.setEnabled(true);
             datePicker.setVisibility(View.GONE);
@@ -66,19 +65,22 @@ public class Main3Activity extends AppCompatActivity {
             String adult = e1.getText().toString();
             String middle = e2.getText().toString();
             String baby = e3.getText().toString();
-            if(adult.getBytes().length == 0) e1.setText("0");{
+            if (adult.getBytes().length == 0) e1.setText("0명");
+            {
                 adult = e1.getText().toString();
             }
-            if(middle.getBytes().length == 0) e2.setText("0");{
+            if (middle.getBytes().length == 0) e2.setText("0명");
+            {
                 middle = e2.getText().toString();
             }
-            if(baby.getBytes().length == 0) e3.setText("0");{
+            if (baby.getBytes().length == 0) e3.setText("0명");
+            {
                 baby = e3.getText().toString();
             }
 
             t19.setText(adult + "명");
             t21.setText(middle + "명");
-            t23.setText(baby+ "명");
+            t23.setText(baby + "명");
             backb.setEnabled(true);
             nextb.setEnabled(false);
             datePicker.setVisibility(View.GONE);
@@ -110,7 +112,6 @@ public class Main3Activity extends AppCompatActivity {
         }
     }
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -133,10 +134,9 @@ public class Main3Activity extends AppCompatActivity {
         grid2 = (GridLayout) findViewById(R.id.grid2);
         datePicker = (DatePicker) findViewById(R.id.datePicker);
         timePicker = (TimePicker) findViewById(R.id.timePicker);
-        e1 = (EditText)findViewById(R.id.e1);
-        e2 = (EditText)findViewById(R.id.e2);
-        e3 = (EditText)findViewById(R.id.e3);
-
+        e1 = (EditText) findViewById(R.id.e1);
+        e2 = (EditText) findViewById(R.id.e2);
+        e3 = (EditText) findViewById(R.id.e3);
 
 
         datePicker.init(datePicker.getYear(), datePicker.getMonth(), datePicker.getDayOfMonth(), new DatePicker.OnDateChangedListener() {
@@ -159,13 +159,13 @@ public class Main3Activity extends AppCompatActivity {
                     tableb.setVisibility(View.VISIBLE);
                     datePicker.setVisibility(View.VISIBLE);
                     timer.setVisibility(View.VISIBLE);
-                    timer.start();
+                    timer.setBase(SystemClock.elapsedRealtime());
                     timer.setFormat("예약시작 경과 시간 : %s");
+                    timer.start();
 
 
                 } else {
                     timer.setVisibility(View.GONE);
-                    timer.setBase(SystemClock.elapsedRealtime());
                     timePicker.setVisibility(View.GONE);
                     frame1.setVisibility(View.GONE);
                     Calendar calendar = Calendar.getInstance();
